@@ -50,7 +50,7 @@ async fn monitor(auto: bool, no_welcome: bool, out: &output::Preferences) {
             out.connected(&inner_tty_path);
 
             if !no_welcome {
-                if let Err(_) = port.write("welcome".as_bytes()).await {
+                if let Err(_) = port.write("welcome\n".as_bytes()).await {
                     out.print("Couldn't send welcome command!");
                 }
             }
